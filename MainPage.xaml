@@ -1,0 +1,63 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpenseTrackerMAUI.MainPage"
+             Title="Expense Tracker">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label x:Name="welcomeLabel"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold" />
+
+            <Label Text="Date:" />
+            <DatePicker x:Name="datePicker" />
+
+            <Label Text="Category:" />
+            <Picker x:Name="categoryPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Food</x:String>
+                        <x:String>Transport</x:String>
+                        <x:String>Utilities</x:String>
+                        <x:String>Entertainment</x:String>
+                        <x:String>Other</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Amount (€):" />
+            <Entry x:Name="amountEntry" Keyboard="Numeric" Placeholder="e.g. 12.99" />
+
+            <Label Text="Description:" />
+            <Entry x:Name="descriptionEntry" Placeholder="e.g. Grocery shopping" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Add" Clicked="OnAddClicked" />
+                <Button Text="View All" Clicked="OnViewAllClicked" />
+                <Button Text="Update" Clicked="OnUpdateClicked" />
+                <Button Text="Delete" Clicked="OnDeleteClicked" />
+            </HorizontalStackLayout>
+
+            <Button Text="Generate Report" Clicked="OnGenerateReportClicked" />
+
+            <Label Text="Expenses:" FontAttributes="Bold" />
+            <Label x:Name="totalLabel" FontAttributes="Italic" TextColor="DarkGreen" />
+
+            <CollectionView x:Name="expenseListView"
+                            HeightRequest="200"
+                            SelectionMode="Single"
+                            SelectionChanged="OnExpenseSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="8" Padding="10" Margin="5">
+                            <Label Text="{Binding DisplayInfo}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

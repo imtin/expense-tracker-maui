@@ -1,0 +1,1 @@
+C:\Users\ivanm\Desktop\ExpenseTrackerMAUI\ExpenseTrackerMAUI.csproj;x64

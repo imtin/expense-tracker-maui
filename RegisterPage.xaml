@@ -1,0 +1,21 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpenseTrackerMAUI.RegisterPage"
+             Title="Register">
+
+    <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+
+        <Label Text="Create an Account"
+               FontSize="24"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+
+        <Entry x:Name="usernameEntry" Placeholder="Choose a username" />
+        <Entry x:Name="passwordEntry" Placeholder="Choose a password" IsPassword="True" />
+        <Entry x:Name="confirmPasswordEntry" Placeholder="Confirm password" IsPassword="True" />
+
+        <Button Text="Register" Clicked="OnRegisterClicked" />
+        <Label x:Name="messageLabel" TextColor="Red" FontAttributes="Italic" />
+
+    </VerticalStackLayout>
+</ContentPage>
